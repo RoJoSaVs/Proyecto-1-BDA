@@ -28,6 +28,7 @@ class MongoDBHandler:
 	# GET THE FIRST RECORD THAT MATCH WITH CONDITION
 	def readOneFromMongoDB(self, filter_attrib, value_attrib):
 		try:
+			print(filter_attrib)
 			result = self.collection.find_one({filter_attrib: value_attrib}, {'_id': False})
 			return result
 		except Exception:
@@ -35,7 +36,7 @@ class MongoDBHandler:
 			return None
 
 
-	# RETURN EVERY APARISON OF MATCH CONDITION
+	# RETURN EACH OCURRENCE THAT MATCHES THE CONDITION
 	def readMultiFromMongoDB(self, filter_attrib, value_attrib):
 		try:
 			result = []
@@ -58,8 +59,9 @@ class MongoDBHandler:
 
 
 	# UPDATE VALUES FOR DOCUMENTS MATCHING A CONDITION
-	def updateToMongoDB(self, query, new_value):
+	def updateToMongoDB(self, update_attribute, update_value, new_value):
 		try:
+			query = {update_attribute : update_value}
 			set_new_values = { "$set": new_value }
 			self.collection.update_many(query, set_new_values)
 			return 0
@@ -69,9 +71,9 @@ class MongoDBHandler:
 
 
 	# DELETE ONE RECORD THAT MATCH A CONDITION
-	def deleteToMongoDB(self, delete_query):
+	def deleteToMongoDB(self, delete_attribute, delete_value):
 		try:
-			self.collection.delete_one(delete_query)
+			self.collection.delete_one({delete_attribute : delete_value})
 			return 0
 		except Exception:
 			print("* Unable to connect to server.")
@@ -91,8 +93,8 @@ connection_str = "mongodb+srv://MongoBDA-R:" + PASSWORD + "@proyecto1bda-nodor.y
 
 # test = MongoDBHandler("MongoDBA-R", "BDA", "Lab2_BDA")
 # print(test.readAllFromMongoDB())
-# print(test.readOneFromMongoDB("Author", "Stephen King"))
+# print(test.readOneFromMongoDB('Author', 'Stephen King'))
 # print(test.readMultiFromMongoDB("Author", "Stephen King"))
 # print(test.insertToMongoDB({"Name": "Gerudo Valley", "Author": "Saria", "User Rating": 5, "Reviews": 17350, "Price": 11, "Year": 1996,"Genre": "Fiction"}))
-# print(test.updateToMongoDB({ "Name": "Gerudo Valley" }, { "Author": "Zelda", "Price": 20}))
-# print(test.deleteToMongoDB({ "Name": "Gerudo Valley" }))
+# print(test.updateToMongoDB("Name", "Gerudo Valley", { "Author": "Zelda", "Price": 20}))
+# print(test.deleteToMongoDB("Name", "Gerudo Valley"))
