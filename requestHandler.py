@@ -75,12 +75,16 @@ def query3():
 
 
 
-@app.route('/api/login', methods=['POST', 'GET'])
+@app.route('/login', methods=['POST'])
 def login():
-    data = request.data
-    return (data)
-
-
+    data = request.json
+    request_value = data['email']
+    request_password = data['password']
+    result = mongo_database.readOneFromMongoDB("email", request_value)
+    if ((result != None) and (result['password'] == request_password)):
+        return jsonify(True)
+    else:
+        return jsonify(False)
 
 
 if __name__ == "__main__":
