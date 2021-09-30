@@ -3,13 +3,13 @@ import flask
 from flask import request, jsonify, g, render_template
 from flask_cors import CORS, cross_origin
 import json
-import time
 import mongodb
 import sys
 
 app = flask.Flask(__name__)
 CORS(app, support_credentials=True)
-mongo_database = mongodb.MongoDBHandler("MongoDBA-R", "BDA", "Lab2_BDA")
+# mongo_database = mongodb.MongoDBHandler("MongoDBA-R", "BDA", "Lab2_BDA")
+mongo_database = mongodb.MongoDBHandler("MongoDBA-R", "Nodo_R", "Employees")
 
 
 @app.route('/', methods=['GET'])
@@ -36,11 +36,6 @@ def api_single_record():
 @app.route('/api/add_employee', methods=['POST'])
 def add_single_record():
     data = request.json
-    # print(data["Name"], file=sys.stderr)
-    # filename = data['filename']
-    # extension = data['extension']
-    # response = [{'number': swear_words}]
-    # return data
     return jsonify(mongo_database.insertToMongoDB(data))
 
 
@@ -51,10 +46,6 @@ def edit_single_record():
     request_value = request.args.get(request_param)
     data = request.json
     return jsonify(mongo_database.updateToMongoDB(request_param, request_value, data))
-    # filename = data['filename']
-    # extension = data['extension']
-    # response = [{'number': swear_words}]
-    # return jsonify(response)
 
 
 
@@ -64,6 +55,23 @@ def delete_single_record():
     request_value = request.args.get(request_param)
     return jsonify(mongo_database.deleteToMongoDB(request_param, request_value))
 
+
+
+@app.route('/api/query1', methods=['GET'])
+def query1():
+    return jsonify(mongo_database.readMultiFromMongoDB("ti_area", True))
+
+
+
+@app.route('/api/query2', methods=['GET'])
+def query2():
+    return jsonify(mongo_database.readMultiFromMongoDB("languajes", {"English":"Advance"}))
+
+
+
+@app.route('/api/query3', methods=['GET'])
+def query3():
+    return jsonify(mongo_database.readMultiFromMongoDB("ti_area", False))
 
 
 

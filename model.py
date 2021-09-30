@@ -19,7 +19,6 @@ class Persona:
 		self.programming_languages = programming_languages
 		self.languages = languages
 
-# test.insertToMongoDB({"Name": "Gerudo Valley", "Author": "Saria", "User Rating": 5, "Reviews": 17350, "Price": 11, "Year": 1996,"Genre": "Fiction"})
 
 	def createDocument(self):
 		document = {}
