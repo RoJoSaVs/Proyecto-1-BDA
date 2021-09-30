@@ -6,6 +6,9 @@ import { ApplicantComponent } from './applicant/applicant.component';
 import { HumanResourcesComponent } from './human-resources/human-resources.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { RegisterComponent } from './register/register.component';
     RegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
