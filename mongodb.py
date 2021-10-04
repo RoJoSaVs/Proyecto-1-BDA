@@ -100,7 +100,7 @@ connection_str = "mongodb+srv://MongoBDA-R:"+PASSWORD+"@proyecto1bda-nodor.yfva8
 # test = MongoDBHandler("MongoDBA-R", "Nodo_R", "Employees")
 # test = MongoDBHandler("MongoDBA-R", "BDA", "Lab2_BDA")
 # print(test.readAllFromMongoDB())
-# print(test.readOneFromMongoDB('Author', 'Stephen King'))
+# print(test.readOneFromMongoDB('email', 'email14@domain.com'))
 # print(test.readMultiFromMongoDB("ti_area", True))
 # print(test.insertToMongoDB({"Name": "Gerudo Valley", "Author": "Saria", "User Rating": 5, "Reviews": 17350, "Price": 11, "Year": 1996,"Genre": "Fiction"}))
 # print(test.updateToMongoDB("Name", "Gerudo Valley", { "Author": "Zelda", "Price": 20}))

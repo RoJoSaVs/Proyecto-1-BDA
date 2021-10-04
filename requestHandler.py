@@ -82,7 +82,11 @@ def login():
     request_password = data['password']
     result = mongo_database.readOneFromMongoDB("email", request_value)
     if ((result != None) and (result['password'] == request_password)):
-        return jsonify(True)
+        if ("admin" in result):
+            if (result['admin']):
+                return jsonify('admin')
+        else:
+            return jsonify('Employee')
     else:
         return jsonify(False)
 
