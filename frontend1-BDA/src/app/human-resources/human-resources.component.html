@@ -14,21 +14,22 @@
                 </form>
               </div>
               <div class="col-sm">
-                <div class="row">
-                    <div class="col">
-                      <div ngbDropdown class="d-inline-block">
-                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Categoría</button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                          <button ngbDropdownItem>Aplicantes de IT</button>
-                          <button ngbDropdownItem>Aplicantes de inglés avanzado</button>
-                          <button ngbDropdownItem>Aplicantes fuera del área de IT</button>
-                        </div>
-                      </div>
-                    </div>
-                  
+                <div class="dropdown">
+                  <div>
+                    <select [(ngModel)]="selectedOption">
+                      <option *ngFor="let option of options">
+                         {{option.name}}
+                      </option>
+                   </select>
+                  </div>
+                  <br>
+                  <button (click)="onSubmit()" class="btn btn-primary">Consultar</button>
+                </div>              
               </div>
             </div>
           </div>
+          <br>
+          <ng-container #container></ng-container >
     </div>
   </div>
   

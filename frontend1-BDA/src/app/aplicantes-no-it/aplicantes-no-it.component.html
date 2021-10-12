@@ -1,0 +1,18 @@
+<div class = "container">
+    <table class = "table  table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nombre Completo</th>
+                <th>Títulos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let aplicante of aplicantes">
+                <td><span>{{aplicante.full_name}}</span></td>
+                <td><span>{{aplicante.university_degree}}</span></td>
+                <div>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+</div>
