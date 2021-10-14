@@ -16,8 +16,7 @@ import { AplicantesNoITComponent } from './aplicantes-no-it/aplicantes-no-it.com
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
-  { path: 'hr', component: HumanResourcesComponent},
-  { path: 'applicant', component: ApplicantComponent}
+  { path: 'hr', component: HumanResourcesComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import {ConnectionService} from "../services/connection.service";
 
 @Component({
   selector: 'app-login',
@@ -8,18 +9,28 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
   /**
-   * This class is in charge of holding the login form
+   *
    */
   export class LoginComponent implements OnInit {
   @ViewChild('login') loginForm: NgForm;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: ConnectionService) { }
 
   ngOnInit(): void {
   }
 
+  // Lo que sucede cuando se hace un login
   onLogin(): void {
-    console.log(this.loginForm.value.username);
+    console.log(this.loginForm.value);
+
+    this.service.Post(this.loginForm.value,'https://proyecto-1-bda.rojosavs.repl.co/login').subscribe(
+      res=>{
+        console.log(res)
+        if (res === 'admin') {
+          this.router.navigate(['hr']);
+        }
+      }
+    );
   }
 
   onNoAccount(): void {

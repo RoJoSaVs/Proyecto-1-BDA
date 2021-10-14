@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 
 export class ConnectionService {
+  currentUser: string;
 
   items = [];
 
@@ -13,7 +14,7 @@ export class ConnectionService {
   constructor(
     private http: HttpClient
   ) {}
-  
+
 
   //postea hacia el server
   Post(val:any,postURL: string){
@@ -35,5 +36,5 @@ export class ConnectionService {
     return this.http.delete(deleteURL,val);
   }
 
-  
+
 }
