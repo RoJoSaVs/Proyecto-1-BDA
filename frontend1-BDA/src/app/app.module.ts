@@ -12,11 +12,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AplicantesITComponent } from './aplicantes-it/aplicantes-it.component';
 import { AplicantesInglesComponent } from './aplicantes-ingles/aplicantes-ingles.component';
 import { AplicantesNoITComponent } from './aplicantes-no-it/aplicantes-no-it.component';
+import { ApplicantComponent } from './applicant/applicant.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
-  { path: 'hr', component: HumanResourcesComponent}
+  { path: 'hr', component: HumanResourcesComponent},
+  { path: 'applicant', component: ApplicantComponent}
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     AplicantesITComponent,
     AplicantesInglesComponent,
-    AplicantesNoITComponent
+    AplicantesNoITComponent,
+    ApplicantComponent
   ],
   imports: [
     BrowserModule,
