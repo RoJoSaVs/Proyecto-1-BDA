@@ -18,7 +18,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister(): void {
-    console.log(this.registerForm);
+    console.log(this.registerForm.value.lenguajes);
+    console.log(typeof (this.registerForm.value.lenguajes));
+    // this.registerForm.value.programming_lenguages === {"name":"John", "age":30, "city":"New York"}
+    this.registerForm.value["lenguajes"]=JSON.parse(this.registerForm.value["lenguajes"]);
     this.service.Post(this.registerForm.value,'https://proyecto-1-bda.rojosavs.repl.co/api/add_employee').subscribe(
       res=>{
         console.log(res)
