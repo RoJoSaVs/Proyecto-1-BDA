@@ -31,8 +31,10 @@ import {ConnectionService} from "../services/connection.service";
         }
         if (res === 'Employee') {
           this.service.email = this.loginForm.value.email;
-          // this.router.navigate(['applicant',this.loginForm.value.password]);
           this.router.navigate(['applicant']);
+        }
+        else {
+          console.log("API sin respuesta definida")
         }
       }
     );
