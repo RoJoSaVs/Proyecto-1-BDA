@@ -6,7 +6,7 @@
         <i class="far fa-user"></i>
       </div>
       <div class="col-12 form-input">
-        <form  #register="ngForm">
+        <form (ngSubmit)="onUpdate()"  #update="ngForm">
           <!--Password-->
           <div class="form-group" style="padding-bottom: 5%">
             <input

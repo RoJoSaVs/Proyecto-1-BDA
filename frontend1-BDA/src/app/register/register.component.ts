@@ -19,14 +19,14 @@ export class RegisterComponent implements OnInit {
 
   onRegister(): void {
     //console.log(this.registerForm.value.lenguajes);
-    
     // this.registerForm.value.programming_lenguages === {"name":"John", "age":30, "city":"New York"}
     //console.log(this.registerForm.value.languajes);
     //console.log('{{'+this.registerForm.value.languajes.replaceAll(',', '},{') +'}}');
     //this.registerForm.value.languajes=JSON.parse('{{'+this.registerForm.value.languajes.replaceAll(',', '},{') +'}}');
-    this.registerForm.value.languajes=JSON.parse("{"+this.registerForm.value.languajes+"}");
     //this.registerForm.value.programming_languages="['"+this.registerForm.value.programming_languages.replaceAll(',', "','")+"']";
     //this.registerForm.value.university_degree="['"+this.registerForm.value.university_degree.replaceAll(',', "','")+"']";
+
+    this.registerForm.value.languajes=JSON.parse("{"+this.registerForm.value.languajes+"}");
     this.registerForm.value.university_degree=this.registerForm.value.university_degree.split(",");
     this.registerForm.value.programming_languages=this.registerForm.value.programming_languages.split(",");
     console.log(this.registerForm.value);
