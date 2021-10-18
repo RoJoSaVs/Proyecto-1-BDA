@@ -1,7 +1,7 @@
 # DATABASE CONNECTION
 # THIS MODULE CREATE A CONNECTION WITH MONGO DATABASE 
 import pymongo
-
+import json
 
 
 class MongoDBHandler:
@@ -87,21 +87,6 @@ class MongoDBHandler:
 ######################################### - Instance Constant Values - ###################################################
 ##########################################################################################################################
 PASSWORD = "MongoDBA-R"
-# DATABASE = "BDA"
 DATABASE = "Nodo_R"
-# COLLECTION = "Lab2_BDA"
 COLLECTION = "Employees"
 connection_str = "mongodb+srv://MongoBDA-R:"+PASSWORD+"@proyecto1bda-nodor.yfva8.mongodb.net/Nodo_R"
-# connection_str = "mongodb+srv://MongoBDA-R:" + PASSWORD + "@proyecto1bda-nodor.yfva8.mongodb.net/" + DATABASE + "?retryWrites=true&w=majority"
-# connection_str = 'mongodb://Fallas:fallas123@cluster0-shard-00-00.ctzqs.mongodb.net:27017,cluster0-shard-00-01.ctzqs.mongodb.net:27017,cluster0-shard-00-02.ctzqs.mongodb.net:27017/BDMultimedia?ssl=true&replicaSet=atlas-ls6q9y-shard-0&authSource=admin&retryWrites=true&w=majority'
-# connection_str = "mongodb+srv://Fallas:fallas123@cluster0.ctzqs.mongodb.net/Proyecto1BDA?retryWrites=true&w=majority"
-##########################################################################################################################
-
-# test = MongoDBHandler("MongoDBA-R", "Nodo_R", "Employees")
-# test = MongoDBHandler("MongoDBA-R", "BDA", "Lab2_BDA")
-# print(test.readAllFromMongoDB())
-# print(test.readOneFromMongoDB('email', 'email14@domain.com'))
-# print(test.readMultiFromMongoDB("ti_area", True))
-# print(test.insertToMongoDB({"Name": "Gerudo Valley", "Author": "Saria", "User Rating": 5, "Reviews": 17350, "Price": 11, "Year": 1996,"Genre": "Fiction"}))
-# print(test.updateToMongoDB("Name", "Gerudo Valley", { "Author": "Zelda", "Price": 20}))
-# print(test.deleteToMongoDB("Name", "Gerudo Valley"))
