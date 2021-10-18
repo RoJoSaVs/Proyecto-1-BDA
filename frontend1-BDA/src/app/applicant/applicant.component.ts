@@ -17,21 +17,19 @@ export class ApplicantComponent implements OnInit {
 
   readonly rootURL = 'https://proyecto-1-bda.rojosavs.repl.co/api/single_employee?email='+this.service.email;
 
-  aplicante_info: Aplicante_info[] ;
-
-
+  aplicante_info: Aplicante_info;
 
   ngOnInit(): void {
     this.email = this.service.email;
     this.service.Get(this.rootURL).subscribe(
       response => {
+          console.log(response);
           this.aplicante_info = response;
-      },
+          console.log(this.aplicante_info);
+          this.aplicante_info.languajes = JSON.stringify(this.aplicante_info.languajes)
+          console.log(typeof(this.aplicante_info.languajes));
+      }
     );
-    /*
-    this.router.params.subscribe(event => {
-      this.email = event.id;
-    });
-    */
-  } 
+
+  }
 }

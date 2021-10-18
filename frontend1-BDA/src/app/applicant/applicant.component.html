@@ -7,18 +7,6 @@
       </div>
       <div class="col-12 form-input">
         <form  #register="ngForm">
-
-          <!--Username-->
-          <div class="form-group" style="padding-bottom: 5%">
-            <input
-              type="text"
-              class="form-control"
-              name="email"
-              required
-              placeholder="Usuario"
-            />
-          </div>
-
           <!--Password-->
           <div class="form-group" style="padding-bottom: 5%">
             <input
@@ -36,31 +24,32 @@
             <input
               type="text"
               class="form-control"
-              ngModel
+              [ngModel]="this.aplicante_info.full_name"
               name="full_name"
               required
               placeholder="Nombre completo"
             />
           </div>
 
-          <!--Name-->
+          <!--Country-->
           <div class="form-group" style="padding-bottom: 5%">
             <input
               type="text"
               class="form-control"
-              ngModel
+              [ngModel]="this.aplicante_info.country"
               name="country"
               required
               placeholder="Pais de residencia"
             />
           </div>
 
+          <!--University degree-->
           <div class="form-group" style="padding-bottom: 5%">
             <label style="padding-bottom: 5%" for="u_d">Para los siguientes se deben colocar entre [] y con "" para cada uno, si se tienen varios separarlos por comas</label>
             <input
               type="text"
               class="form-control"
-              ngModel
+              [ngModel]="this.aplicante_info.university_degree"
               id="u_d"
               name="university_degree"
               required
@@ -68,33 +57,35 @@
             />
           </div>
 
+          <!--TI area-->
           <div class="form-group" style="padding-bottom: 5%">
             <label for="it">Pertenece al area de IT?</label>
             <input
               type="checkbox"
-              ngModel
+              [ngModel]="this.aplicante_info.ti_area"
               id="it"
               name="ti_area"
-
             />
           </div>
 
+          <!--Programming languages-->
           <div class="form-group" style="padding-bottom: 5%">
             <input
               type="text"
               class="form-control"
-              ngModel
+              [ngModel]="this.aplicante_info.programming_languages"
               name="programming_languages"
               required
               placeholder="Lenguajes de programacion"
             />
           </div>
 
+          <!--Languajes-->
           <div class="form-group" style="padding-bottom: 5%">
             <input
               type="text"
               class="form-control"
-              ngModel
+              [ngModel]="this.aplicante_info.languajes"
               name="languajes"
               required
               placeholder="Idiomas"
